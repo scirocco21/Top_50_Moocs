@@ -1,0 +1,4 @@
+require 'config/environment.rb'
+
+module top_50_moocs
+end
