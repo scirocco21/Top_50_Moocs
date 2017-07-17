@@ -7,6 +7,15 @@ class CLI
       make_courses
       show_course_list
     end
+    puts "Please enter a course number to see more details."
+    input = gets.strip.to_i
+
+    if input.between?(1,20)
+      selected_course = Course.all.find {|course| course.id == input}
+      course_description = Scraper.scrape_course_description(selected_course)
+      selected_course.add_description(course_description, selected_course)
+      selected_course.display_description
+    end
     puts "Enter 'return' to go back to the menu or type 'exit' to quit the program."
     if gets.strip.downcase == "return"
       call
@@ -21,13 +30,11 @@ class CLI
   end
 
   def show_course_list
-    list_counter = 1
     Course.all.each do |course|
-      puts "#{list_counter}. #{course.title}"
+      puts "#{course.id}. #{course.title}"
       puts "Course provider: #{course.institution}"
-      puts "Link: https://www.coursera.org" + "#{course.url}"
+      puts "Link: #{course.url}"
       puts ""
-      list_counter += 1
     end
   end
 
