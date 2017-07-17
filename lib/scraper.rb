@@ -9,7 +9,8 @@ class Scraper
       course_title = course.css('h2.color-primary-text.headline-1-text.flex-1')
       course_provider = course.css('div.text-light.offering-partner-names')
       course_url = course.css('href')
-    courses << {name: course_title, institution: course_provider, url = course_url}
+      courses << {name: course_title, institution: course_provider, url = course_url}
     end
   end
+  courses
 end
