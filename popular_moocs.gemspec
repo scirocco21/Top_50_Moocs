@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'Top_50_Moocs/version'
+require 'lib/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "Top_50_Moocs"
-  spec.version       = Top50Moocs::VERSION
+  spec.name          = "popular_moocs"
+  spec.version       = PopularMoocs::VERSION
   spec.authors       = ["'Seb Gertz'"]
   spec.email         = ["'sebgertz@gmail.com'"]
 

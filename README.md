@@ -1,2 +1,2 @@
-# Top_50_Moocs
-A CLI gem displaying the top 50 MOOCS as ranked by Class_Central.com
+# popular_moocs
+A CLI gem displaying MOOCs (Massive Open Online Courses) that are currently featured on Coursera
