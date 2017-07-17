@@ -1,3 +1,4 @@
+
 class Scraper
 
   def self.scrape_courses
@@ -8,10 +9,16 @@ class Scraper
     course_cards.each do |course|
       course_title = course.css('h2.color-primary-text.headline-1-text.flex-1').text
       course_provider = course.css('div.text-light.offering-partner-names').text
-      course_url = course.css('href').text
+      course_url = course.attribute("href").value
       courses << {title: course_title, institution: course_provider, url: course_url}
     end
     courses
   end
-  
+
+  def self.scrape_course_description(course_url)
+    html = open('course_url')
+    doc = Nokogiri::HTML(html)
+    course_description = doc.css('p.body-1-text.course-description')
+  end
+
 end
