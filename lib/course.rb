@@ -26,4 +26,8 @@ class Course
     @@course_list
   end
 
+  def add_description(course_description, course_id)
+    Course.all[course_id][:description] = course_descriptions[course_id]
+  end
+
 end
