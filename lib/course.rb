@@ -5,7 +5,7 @@ class Course
 
   def initialize(courses_hash)
     courses_hash.each do |attribute, value|
-      self.send("#{attribut}=", value)
+      self.send("#{attribute}=", value)
     end
   @@all << self
 
