@@ -1,5 +1,5 @@
 class Course
-  attr_accessor :title, :institution, :url
+  attr_accessor :title, :institution, :url, :id, :description
 
   @@course_list = []
 
@@ -16,18 +16,17 @@ class Course
     end
   end
 
-  def show_course_list
-    Course.all.each do |course|
-      puts course.title
-    end
-  end
-
   def self.all
     @@course_list
   end
 
-  def add_description(course_description, course_id)
-    Course.all[course_id][:description] = course_descriptions[course_id]
+  def add_description(course_description, selected_course)
+    selected_course.description = course_description
+  end
+
+  def display_description
+    puts "#{self.description}"
+    puts ""
   end
 
 end
