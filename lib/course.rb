@@ -10,18 +10,20 @@ class Course
     @@course_list << self
   end
 
-  def self.create_courses(courses)
-    courses.each do |course_hash|
-      Course.new(course_hash)
-    end
-  end
-
   def self.all
     @@course_list
   end
 
-  def add_description(course_description, selected_course)
-    selected_course.description = course_description
+  def self.find(index)
+    self.all[index]
+  end
+
+  def self.find_by_institution(institution)
+    self.all.select{|course| course.institution == institution}
+  end
+
+  def add_description(course_description)
+    self.description = course_description
   end
 
   def display_description
